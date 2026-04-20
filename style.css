@@ -4,6 +4,7 @@
 body{
     margin: 0;
     padding: 0;
+    font-family: 'Courier New', Courier, monospace;
 }
 nav{
     display: flex;
@@ -16,7 +17,7 @@ nav{
     left: 0;
     width: 100%;
     z-index: 1000;
-}
+    box-shadow: 5px 5px 15px 0 black;}
 .hamburger{
     display: none;
     font-size: 28px;
@@ -36,7 +37,6 @@ nav{
     text-decoration: none;
     color: black;
 }
-/* hero section */
 .hero{
     background-color: #f9c944;
     min-height: 100vh;
@@ -51,7 +51,7 @@ nav{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 40px;
+    gap: 70px;
 }
 .hero-text{
     flex: 1;
@@ -65,6 +65,7 @@ nav{
     margin-top: 20px;
     max-width: 500px;
     font-size: 1rem;
+    line-height: 1.7;
 }
 .highlight{
     background-color: black;
@@ -74,15 +75,19 @@ nav{
 }
 .hero-image{
     flex: 1;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
 }
 .hero-image img{
-    width: 100%;
-    height: 600px;
+    width: 70%;
+    height: 70%;
+    object-fit: cover;
+    object-position: center top;
     border-radius: 10px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
 }
-
-/* features */
 .features{
     background-color: rgb(41, 40, 40);
     color: white;
@@ -109,17 +114,17 @@ nav{
 .left-features p{
     font-size: 16px;
     max-width: 500px;
-    line-height: 1.6;
+    line-height: 2.0;
     color: rgb(188, 188, 188);
 }
 .right-features{
     flex: 1;
 }
 .core-title{
-    font-size: 12px;
+    font-size: 16px;
+    font-weight: bold;
     letter-spacing: 2px;
     color: rgb(188, 188, 188);
-    margin-bottom: 40px;
 }
 .skill{
     margin-bottom: 30px;
@@ -139,7 +144,6 @@ nav{
 .skill h3:hover{
     color: #f9c944;
 }
-/* project css */
 .project{
     background-color: rgb(34, 32, 32);
     color: white;
@@ -164,15 +168,18 @@ nav{
     transform: scale(1.03);
     transition: 0.3s ease;
 }
-/* right side of project*/
 .project-info{
     flex: 1;
 }
+.project a{
+    font: 1em sans-serif;
+}
 .tag{
-    font-size: 12px;
+    font-size: 18px;
     letter-spacing: 2px;
     color: #888;
     margin-bottom: 10px;
+    font-weight: bold;
 }
 .project-info h2{
     font-size: 2.2rem;
@@ -186,7 +193,6 @@ nav{
     line-height: 1.6;
     margin-bottom: 20px;
 }
-/* Link */
 .project-link{
     color: #f9c944;
     text-decoration: none;
@@ -195,15 +201,15 @@ nav{
 .project-link:hover{
     text-decoration: underline;
 }
-/* CTA Section */
 .cta{
-    background-color: #0b0b0b;
-    padding: 100px 20px;
+    background-color: #141414;
+    padding: 45px 12px;
     text-align: center;
+    margin: 0;
 }
 .cta p{
     color: #ccc;
-    font-size: 20px;
+    font-size: 30px;
     font-weight: 500;
 }
 .cta p:hover{
@@ -217,20 +223,17 @@ nav{
 .cta a:hover{
     text-decoration: none;
 }
-/* Footer / Contact */
 .contact-footer{
     background-color: #0b0b0b;
     color: white;
-    padding: 100px 60px;
+    padding: 50px 60px;
+    margin: 0;
 }
-
 .footer-container{
     display: flex;
     justify-content: space-between;
     gap: 80px;
 }
-
-/* LEFT */
 .footer-left,
 .footer-links,
 .footer-right{
@@ -240,7 +243,6 @@ nav{
     font-size: 2.5rem;
     line-height: 1.3;
 }
-
 .footer-left span{
     color: #f9c944;
 }
@@ -249,61 +251,51 @@ nav{
     cursor: pointer;
 }
 .socials{
-    margin-top: 30px;
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
-
 .socials a{
     text-decoration: none;
     color: #aaa;
     transition: 0.3s;
 }
-
 .socials a:hover{
     color: white;
 }
-/* middle links */
 .footer-links{
+    font-weight: bold;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 8px;
 }
-
 .footer-links a{
     text-decoration: none;
     color: #aaa;
     transition: 0.3s;
     font-size: 14px;
 }
-
 .footer-links a:hover{
     color: #f9c944;
 }
-/* RIGHT */
 .footer-right{
     flex: 1;
 }
-
 .quick{
+    font-weight: bold;
     font-size: 12px;
     letter-spacing: 2px;
     color: white;
-    margin-bottom: 15px;
     text-align: center;
     font-size: 2rem;
 }
-
-/* FORM */
 .contact-form{
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
-
 .contact-form input,
 .contact-form textarea{
     background: #111;
@@ -312,12 +304,10 @@ nav{
     color: white;
     border-radius: 5px;
 }
-
 .contact-form textarea{
     min-height: 120px;
     resize: none;
 }
-
 .contact-form button{
     background: #f9c944;
     border: none;
@@ -325,20 +315,16 @@ nav{
     cursor: pointer;
     font-weight: bold;
 }
-
 .contact-form button:hover{
     background: #ffd95e;
 }
-
-/* BOTTOM */
 .footer-bottom{
-    margin-top: 80px;
+    margin-top: 30px;
     display: flex;
     justify-content: space-between;
     color: #777;
     font-size: 14px;
     border-top: 1px solid rgba(255,255,255,0.05);
-    padding-top: 20px;
 }
 
 
@@ -361,32 +347,26 @@ nav{
     left: 0;
     width: 100%;
     z-index: 1000;
+    box-shadow: 5px 5px 15px 0 black;
 }
-
 .nav-logo{
     font-weight: bold;
     font-size: 20px;
 }
-
 .nav-right{
     display: flex;
     gap: 10px;
     font-size: 13px;
 }
-
 .nav-right a{
     text-decoration: none;
     color: black;
 }
-
-/* HAMBURGER */
 .hamburger{
     display: none;
     font-size: 28px;
     cursor: pointer;
 }
-
-/* ===== CONTACT SECTION ======== */
 .con-area{
     background-color: rgb(34, 32, 32);
     color: white;
@@ -396,14 +376,11 @@ nav{
     flex-direction: column;
     align-items: center;
 }
-
 .con-title{
     font-size: 32px;
     font-weight: bold;
     margin-bottom: 30px;
 }
-
-/* FORM BOX */
 .con-form{
     width: 100%;
     max-width: 500px;
@@ -411,8 +388,6 @@ nav{
     padding: 30px;
     border-radius: 10px;
 }
-
-/* INPUTS */
 .con-form input,
 .con-form textarea{
     width: 100%;
@@ -424,18 +399,14 @@ nav{
     color: white;
     font-size: 14px;
 }
-
 .con-form input::placeholder,
 .con-form textarea::placeholder{
     color: #aaa;
 }
-
 .con-form textarea{
     min-height: 120px;
     resize: none;
 }
-
-/* BUTTON */
 .con-form button{
     width: 100%;
     padding: 12px;
@@ -444,12 +415,9 @@ nav{
     font-weight: bold;
     cursor: pointer;
 }
-
 .con-form button:hover{
     background-color: #e5b93d;
 }
-
-/* ======= social links ====== */
 .soc-area{
     background-color: rgb(41, 40, 40);
     padding: 40px 20px;
@@ -481,14 +449,14 @@ nav{
 }
 
 
+
+
 /****** project page css *******/
 .work-zone{
-    background-color: rgb(34,32,32);
+    background-color: rgb(34, 32, 32);
     color: #fff;
     padding: 100px 20px;
 }
-
-/* INNER LAYOUT */
 .work-shell{
     max-width: 1100px;
     margin: auto;
@@ -496,51 +464,37 @@ nav{
     align-items: center;
     gap: 70px;
 }
-
-/* IMAGE SIDE */
 .work-pic{
     flex: 1;
 }
-
 .work-pic img{
     width: 100%;
     border-radius: 12px;
     box-shadow: 0 12px 35px rgba(0,0,0,0.6);
     transition: 0.3s ease;
 }
-
 .work-pic img:hover{
     transform: scale(1.04);
 }
-
-/* TEXT SIDE */
 .work-text{
     flex: 1;
 }
-
-/* SMALL LABEL */
 .work-tag{
     font-size: 11px;
     letter-spacing: 2px;
     color: #aaa;
     margin-bottom: 10px;
 }
-
-/* TITLE */
 .work-head{
     font-size: 34px;
     margin-bottom: 15px;
 }
-
-/* DESCRIPTION */
 .work-note{
     font-size: 15px;
     color: #cfcfcf;
     line-height: 1.6;
     margin-bottom: 25px;
 }
-
-/* BUTTON */
 .work-btn{
     display: inline-block;
     background-color: #f9c944;
@@ -549,7 +503,6 @@ nav{
     text-decoration: none;
     font-weight: bold;
 }
-
 .work-btn:hover{
     background-color: #e0b63c;
 }
@@ -557,15 +510,17 @@ nav{
 
 
 
-/* SECTION */
+
+
+
+
+/***** skills section page ******/
 .ability-core{
     background-color: rgb(41,40,40);
     color: white;
     padding: 80px 20px;
     width: 100%;
 }
-
-/* TITLE */
 .ability-head{
     text-align: center;
     font-size: 30px;
@@ -576,35 +531,26 @@ nav{
 .ability-core hr{
     width: 50%;
 }
-/* ITEM */
 .ability-item{
     margin-bottom: 25px;
     padding-left: 15px;
     border-left: 3px solid #f9c944;
 }
-
-/* HEADING */
 .ability-item h3{
     font-size: 20px;
     margin-bottom: 5px;
 }
-
-/* STACK TEXT */
 .ability-meta{
     font-size: 13px;
     color: #888;
     margin-bottom: 8px;
 }
-
-/* DESCRIPTION WITH * BULLET */
 .ability-item p{
     font-size: 14px;
     line-height: 1.6;
     position: relative;
     padding-left: 15px;
 }
-
-/* ADD * BEFORE TEXT */
 .ability-item p::before{
     content: "*";
     position: absolute;
@@ -616,6 +562,10 @@ nav{
 
 
 
+
+
+
+/****** about page css *****/
 .about-wrap{
     padding: 80px 20px;
     width: 100%;
@@ -670,12 +620,13 @@ nav{
     text-align: center;
     color: #f9c944;
     margin-bottom: 20px;
+    font-size: 35px;
+    font-weight: bold;
 }
 .about-list{
     max-width: 600px;
     margin: auto;
 }
-
 .about-list p{
     margin-bottom: 12px;
     padding-left: 18px;
@@ -690,14 +641,20 @@ nav{
 
 
 
-@media screen and (max-width: 480px){
 
+
+
+
+
+
+
+/****** media screen ****/
+@media screen and (max-width: 480px){
     /* NAV */
     nav{
         flex-wrap: wrap;
         padding: 10px;
     }
-
     .hamburger{
         display: block;
         font-size: 28px;
@@ -805,7 +762,6 @@ nav{
 
     /* ===== mobile css skills page ========= */
 @media(max-width:600px){
-
     .ability-core{
         padding: 50px 10px;
     }
@@ -832,11 +788,9 @@ nav{
         flex-direction: column;
         text-align: center;
     }
-
     .about-text h1{
         font-size: 28px;
     }
-
     .about-image img{
         max-width: 280px;
     }
