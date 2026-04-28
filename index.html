@@ -23,6 +23,7 @@
         <a href="contact.html">/CONTACT ME</a>
         </div>
     </nav>
+    <div class="overlay"></div>
         <section class="hero">
             <div class="container">
                 <!--left hero section text-->
@@ -34,7 +35,7 @@
                         <span class="highlight">CSS & JS.</span>
                     </h1>
                     <p>
-                        personiate about creating fast, acessible, and visually stunning
+                        passionate about creating fast, acessible, and visually stunning
                         digital experiences. Turning complex problems into simple, elegant code.
                     </p>
                 </div>
@@ -62,10 +63,10 @@
                 <div class="skill">
                     <h3>Frontend Development</h3>
                     <p class="tech">HTML5 / CSS3 / JavaScript (ES6+)</p>
-                    <p>crafting responsive, sematic and acessible user interface from scratch</p>
+                    <p>crafting responsive, semantic and accessible user interface from scratch</p>
                 </div>
                 <div class="skill">
-                    <h3>Mordern Frameworks</h3>
+                    <h3>Modern Frameworks</h3>
                     <p class="tech">React</p>
                     <p>Building scalable single-page applications with state-of-the-art tooling</p>
                 </div>
@@ -101,16 +102,16 @@
                 <a href="https://github.com/musakhalid215-tech/my-assignment">/github</a>
             </p>
         </section>
-        <script src="script.js"></script>
+        <script src="script.js" defer></script>
  <footer class="contact-footer">
                 <div class="footer-container">
 
-        <!-- LEFT SIDE -->
-        <div class="footer-left">
-            <h2>
-                Let's build something great together.<br>
-                Say <span>/hello</span>.
-            </h2>
+                    <!-- LEFT SIDE -->
+                    <div class="footer-left">
+                        <h2>
+                            Let's build something great together.<br>
+                            Say <span>/hello</span>.
+                        </h2>
 
             <div class="socials">
                 <a href="https://github.com/musakhalid215-tech/my-assignment">GitHub</a>
@@ -131,15 +132,16 @@
         <div class="footer-right">
             <p class="quick">CONTACT ME</p>
 
-            <form class="contact-form">
-                <input type="text" placeholder="Your Name" required>
-                <input type="tel" placeholder="Phone Number (Optional)">
-                <input type="email" placeholder="Email Address" required>
+            <form id="contact-form" action="https://formspree.io/f/xlgawvrk" method="post">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="tel" name="Phone" placeholder="Phone Number (Optional)">
+                <input type="email" name="email" placeholder="Email Address" required>
                 
-                <textarea placeholder="Your Message"></textarea>
+                <textarea name="Message" placeholder="Your Message"></textarea>
                 
                 <button type="submit">Send Message</button>
             </form>
+            <p id="status"></p>
         </div>
 
     </div>

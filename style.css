@@ -17,11 +17,28 @@ nav{
     left: 0;
     width: 100%;
     z-index: 1000;
-    box-shadow: 5px 5px 15px 0 black;}
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
 .hamburger{
     display: none;
     font-size: 28px;
     cursor: pointer;
+}
+.overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0,0,0,0.5);
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.3s;
+    z-index: 900;
+}
+.overlay.active{
+    opacity: 1;
+    pointer-events: all;
 }
 .nav-left{
     display: flex;
@@ -291,32 +308,68 @@ nav{
     text-align: center;
     font-size: 2rem;
 }
-.contact-form{
+#contact-form{
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
-.contact-form input,
-.contact-form textarea{
+#contact-form input,
+#contact-form textarea{
     background: #111;
     border: 1px solid #222;
     padding: 12px;
     color: white;
     border-radius: 5px;
 }
-.contact-form textarea{
+#contact-form textarea{
     min-height: 120px;
     resize: none;
 }
-.contact-form button{
+#contact-form button{
     background: #f9c944;
     border: none;
     padding: 12px;
     cursor: pointer;
     font-weight: bold;
 }
-.contact-form button:hover{
+#contact-form button:hover{
     background: #ffd95e;
+}
+#status {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 250px;
+    padding: 14px 18px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.3s ease;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* show animation */
+#status.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* success */
+#status.success {
+    background: #111;
+    color: #00ff99;
+    border-left: 4px solid #00ff99;
+}
+
+/* error */
+#status.error {
+    background: #111;
+    color: #ff4d4d;
+    border-left: 4px solid #ff4d4d;
 }
 .footer-bottom{
     margin-top: 30px;
@@ -381,15 +434,15 @@ nav{
     font-weight: bold;
     margin-bottom: 30px;
 }
-.con-form{
+#con-form{
     width: 100%;
     max-width: 500px;
     background-color: rgb(41, 40, 40);
     padding: 30px;
     border-radius: 10px;
 }
-.con-form input,
-.con-form textarea{
+#con-form input,
+#con-form textarea{
     width: 100%;
     padding: 12px;
     margin-bottom: 15px;
@@ -399,15 +452,15 @@ nav{
     color: white;
     font-size: 14px;
 }
-.con-form input::placeholder,
-.con-form textarea::placeholder{
+#con-form input::placeholder,
+#con-form textarea::placeholder{
     color: #aaa;
 }
-.con-form textarea{
+#con-form textarea{
     min-height: 120px;
     resize: none;
 }
-.con-form button{
+#con-form button{
     width: 100%;
     padding: 12px;
     background-color: #f9c944;
@@ -415,7 +468,7 @@ nav{
     font-weight: bold;
     cursor: pointer;
 }
-.con-form button:hover{
+#con-form button:hover{
     background-color: #e5b93d;
 }
 .soc-area{
@@ -642,70 +695,102 @@ nav{
 
 
 
+    
 
-
-
-
-
-
-/****** media screen ****/
+     /****** MOBILE SIDEBAR MENU ******/
 @media screen and (max-width: 480px){
-    /* NAV */
+  /* ===== NAV ===== */
     nav{
         flex-wrap: wrap;
         padding: 10px;
     }
     .hamburger{
         display: block;
-        font-size: 28px;
-        cursor: pointer;
+        z-index: 1100;
     }
-     .nav-right{
-        display: none;
-        flex-direction: column;
-        width: 100%;
+    .nav-right{
+        position: fixed;
+        top: 0;
+        right: -100%; /* hidden */
+        width: 70%;
+        height: 100vh;
         background-color: #f9c944;
-        padding: 15px;
+        flex-direction: column;
+        padding: 60px 20px;
+        gap: 20px;
+        transition: right 0.3s ease;
+        z-index: 1000;
     }
     .nav-right.active{
-        display: flex;
+        right: 0; /* slide in */
     }
     .nav-right a{
+        font-size: 18px;
         padding: 10px 0;
-        font-size: 16px;
+        border-bottom: 1px solid rgba(0,0,0,0.1);
     }
-    /* HERO */
     .container{
         flex-direction: column;
         text-align: center;
+        gap: 30px;
     }
     .hero-text h1{
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
-    .hero-image img{
+    .hero-text p{
+        font-size: 0.9rem;
+    }
+    .hero-image{
         height: auto;
     }
-    /* FEATURES */
+    .hero-image img{
+        width: 95%;
+        height: auto;
+    }
+    .features{
+        padding: 40px 15px;
+    }
     .features-wraper{
         flex-direction: column;
-        gap: 40px;
+        gap: 30px;
     }
-    /* PROJECT */
+    .left-features h2{
+        font-size: 20px;
+    }
+    .left-features p{
+        font-size: 13px;
+        line-height: 1.7;
+    }
+    .project{
+        padding: 50px 15px;
+    }
     .project-container{
         flex-direction: column;
-        gap: 40px;
+        gap: 25px;
+        text-align: center;
+    }
+    .project-info h2{
+        font-size: 1.4rem;
     }
     .footer-container{
         flex-direction: column;
+        gap: 30px;
         text-align: left;
     }
     .footer-links{
         align-items: flex-start;
     }
+    .footer-right{
+        width: 100%;
+    }
+    #contact-form input,
+    #contact-form textarea{
+        width: 100%;
+    }
     .footer-bottom{
         flex-direction: column;
-        gap: 10px;
         text-align: center;
+        gap: 10px;
     }
 
 
@@ -713,46 +798,30 @@ nav{
 
 
 
-    /****mobile css for contact page ****/
-    .nav-right{
-        display: none;
-    }
-    .hamburger{
-        display: block;
-    }
+
+    /* ===== CONTACT PAGE MOBOLE===== */
     .con-title{
-        font-size: 24px;
+        font-size: 22px;
     }
-    .con-form{
-        width: 90%;
+    #con-form{
+        width: 95%;
     }
-     .bottom{
+    .bottom{
         flex-direction: column;
         gap: 10px;
         text-align: center;
     }
-
-
-
-
-
-
-    
-/******** project page mobiel view css ******/
+    /* ===== PROJECT PAGE ===== */
     .work-shell{
         flex-direction: column;
         text-align: center;
     }
+
     .work-head{
-        font-size: 24px;
+        font-size: 22px;
     }
     .work-zone{
-        padding: 80px 15px;
-    }
-     .bottom{
-        flex-direction: column;
-        gap: 10px;
-        text-align: center;
+        padding: 70px 10px;
     }
 
 
@@ -760,38 +829,42 @@ nav{
 
 
 
-    /* ===== mobile css skills page ========= */
-@media(max-width:600px){
+    /* ===== SKILLS PAGE MOBILE ===== */
     .ability-core{
-        padding: 50px 10px;
-    }
-    .ability-item{
-        padding-left: 12px;
+        padding: 40px 10px;
     }
     .ability-item h3{
-        font-size: 16px;
-    }
-    .ability-meta{
-        font-size: 13px;
-    }
-    .ability-item p{
         font-size: 15px;
     }
+    .ability-meta{
+        font-size: 12px;
+    }
+    .ability-item p{
+        font-size: 14px;
     }
 
 
 
 
 
-    /* ===== mobile css about page ========= */
+
+    /* ===== ABOUT PAGE MOBILE===== */
     .about-hero{
         flex-direction: column;
         text-align: center;
     }
     .about-text h1{
-        font-size: 28px;
+        font-size: 24px;
     }
     .about-image img{
-        max-width: 280px;
+        max-width: 250px;
     }
 }
+
+
+
+
+
+
+
+

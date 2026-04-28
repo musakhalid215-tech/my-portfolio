@@ -25,19 +25,20 @@
         <a href="contact.html">/contact</a>
     </div>
 </nav>
-
+  <div class="overlay"></div>
 <!-- CONTACT AREA -->
 <section class="con-area">
 
     <h1 class="con-title">CONTACT ME</h1>
 
-    <form class="con-form">
-        <input type="text" placeholder="Your Name" required>
-        <input type="tel" placeholder="Phone Number (Optional)">
-        <input type="email" placeholder="Email Address" required>
-        <textarea placeholder="Your Message"></textarea>
-        <button type="submit">Send Message</button>
+  <form id="con-form"  action="https://formspree.io/f/xlgawvrk" method="post">
+        <input type="text"  name="name" placeholder="Your Name" required>
+        <input type="tel" name="Phone" placeholder="Phone Number (Optional)">
+        <input type="email"  name="email" placeholder="Email Address" required>
+        <textarea name="Message" placeholder="Your Message"></textarea>
+        <button  type="submit">Send Message</button>
     </form>
+     <p id="result"></p>
 </section>
 
 <!-- SOCIAL AREA -->
