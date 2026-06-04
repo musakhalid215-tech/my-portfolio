@@ -248,6 +248,7 @@ nav{
 }
 .footer-container{
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     gap: 80px;
 }
@@ -711,9 +712,9 @@ nav{
     .nav-right{
         position: fixed;
         top: 0;
-        right: -100%; /* hidden */
+        right: -100%;
         width: 70%;
-        height: 100vh;
+        height: 80vh;
         background-color: #f9c944;
         flex-direction: column;
         padding: 60px 20px;
@@ -722,7 +723,7 @@ nav{
         z-index: 1000;
     }
     .nav-right.active{
-        right: 0; /* slide in */
+        right: 0;
     }
     .nav-right a{
         font-size: 18px;
